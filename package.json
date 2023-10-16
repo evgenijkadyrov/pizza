@@ -20,16 +20,18 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
     "sass": "^1.57.1",
+    "serve": "^14.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start json-server --watch public/db.json --port=3001",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node server.js",
-
-    "predeploy": "npm run build"
+    "json-server": "json-server --watch public/db.json --port=3001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
