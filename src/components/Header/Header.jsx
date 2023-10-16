@@ -4,16 +4,16 @@ import {Button} from "../index";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
-export const Header = React.memo (() => {
-    const {totalCount, totalPrice}=useSelector(({cart})=>({
-        totalPrice:cart.totalPrice,
-        totalCount:cart.totalCount
+export const Header = React.memo(() => {
+    const {totalCount, totalPrice} = useSelector(({cart}) => ({
+        totalPrice: cart.totalPrice,
+        totalCount: cart.totalCount
     }))
     return (
         <div className="header">
             <div className="container">
 
-                <Link to={'/'}>
+                <Link to={'/pizza'}>
                     <div className="header__logo">
                         <img width="38" src={logo} alt="Pizza logo"/>
                         <div>
@@ -61,8 +61,8 @@ export const Header = React.memo (() => {
                             <span>{totalCount}</span></Button>
                     </div>
                 </Link>
+            </div>
         </div>
-</div>
-);
+    );
 });
 

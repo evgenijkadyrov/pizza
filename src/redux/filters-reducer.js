@@ -3,7 +3,7 @@ const SET_CATEGORIES = 'SET-CATEGORIES'
 
 const initialState = {
     categories: null,
-    sortBy: {name:'популярная', type:'popular'}
+    sortBy: {name: 'популярная', type: 'popular'}
 }
 
 export const setSortBy = (item) => {
@@ -23,7 +23,7 @@ export const filtersReducer = (state = initialState, action) => {
         case SET_SORT_BY:
             return {...state, sortBy: action.payload}
         case SET_CATEGORIES:
-        return {...state, categories:action.payload}
+            return {...state, categories: action.payload}
         default:
             return state
     }

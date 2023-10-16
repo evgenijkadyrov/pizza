@@ -1,70 +1,57 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Readme.me
+ The repository contains the source code for an internet pizza shop, consisting of two pages: the homepage and the shopping cart.
+ ![Pizza Shop Logo](./src/assets/img/home-page.png)
 
-## Available Scripts
+## Features
+The pizza shop web application includes the following features:
 
-In the project directory, you can run:
+Sorting pizzas: Users can sort pizzas based on different criteria such as price, popularity, or name.
+Adding to cart: Users can add pizzas to their shopping cart.
+Pizza categories: Users can choose from various categories of pizzas.
+Cart management: In the shopping cart, users can modify the quantity of pizzas or remove unwanted items.
+## Technologies Used
+The pizza shop web application is built using the following technologies:
 
-### `npm start`
+ReactJS: A JavaScript library for building user interfaces.
+<p>React Router: A routing library for React applications.</p>
+<p>Redux: A predictable state container for JavaScript applications.</p>
+<p>Redux Thunk: A middleware for Redux that allows handling asynchronous actions.</p>
+<p>json-server: A simple JSON-based mock server for development and testing purposes.</p>
+<p>Axios: A promise-based HTTP client for making API requests.</p>
+<p>classnames: A utility for conditionally joining classNames together.</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+To run the pizza shop web application locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone the GitHub repository:
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+git clone https://github.com/evgenijkadyrov/pizza.git
+```
 
-### `npm run build`
+Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+cd pizza
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the dependencies:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start the development app:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm run dev
+```
 
-## Learn More
+This will start the React development server and app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Open your web browser and visit http://localhost:3000 to access the pizza shop web application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

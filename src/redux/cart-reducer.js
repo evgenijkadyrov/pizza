@@ -79,7 +79,7 @@ export const cartReducer = (state = initialState, action) => {
                 totalPrice: newItems.reduce((acc, item) => item.price + acc, 0)
             }
         }
-        case DECREMENT_ITEM:{
+        case DECREMENT_ITEM: {
             let copyState = [...state.items]
             let deleteIndexItem = copyState.findIndex(el => (el.id === action.payload.id) && (el.size === action.payload.size) && (el.name === action.payload.name) && (el.type === action.payload.type))
             copyState.splice(deleteIndexItem, 1)
@@ -88,7 +88,8 @@ export const cartReducer = (state = initialState, action) => {
                 items: copyState,
                 totalCount: copyState.length,
                 totalPrice: copyState.reduce((acc, item) => item.price + acc, 0)
-            }}
+            }
+        }
 
         default:
             return state

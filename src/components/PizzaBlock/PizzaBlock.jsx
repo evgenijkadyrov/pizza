@@ -2,16 +2,17 @@ import React, {useState} from 'react';
 import classNames from 'classnames'
 import {Button} from "../index";
 
-export const PizzaBlock =React.memo(({
-                                         id,
-                                         name = 'no name',
-                                         imageUrl,
-                                         price,
-                                         sizes,
-                                         types,
-                                         onAddPizza,
-                                         addedCount
-                                     })=>{const availableTypes = ['тонкое', 'традиционное']
+export const PizzaBlock = React.memo(({
+                                          id,
+                                          name = 'no name',
+                                          imageUrl,
+                                          price,
+                                          sizes,
+                                          types,
+                                          onAddPizza,
+                                          addedCount
+                                      }) => {
+    const availableTypes = ['тонкое', 'традиционное']
     const availableSizes = [26, 30, 40]
     const [selectSize, setSelectSize] = useState(sizes[0])
     const [selectType, setSelectType] = useState(types[0])
@@ -23,7 +24,14 @@ export const PizzaBlock =React.memo(({
         setSelectType(index)
     }
     const handleAddPizza = () => {
-        onAddPizza({id, name, imageUrl,price, size:selectSize, type:availableTypes[selectType]})
+        onAddPizza({
+            id,
+            name,
+            imageUrl,
+            price,
+            size: selectSize,
+            type: availableTypes[selectType]
+        })
     }
     return (
 
@@ -47,17 +55,18 @@ export const PizzaBlock =React.memo(({
                 <ul>
                     {
                         availableSizes.map((size, index) => <li key={`${size}_${index}`}
-                                                                onClick={() => onSelectItem(size)} className={classNames({
-                            active: selectSize === size,
-                            disabled: !sizes.includes(+size)
-                        })}>{size} см</li>)
+                                                                onClick={() => onSelectItem(size)}
+                                                                className={classNames({
+                                                                    active: selectSize === size,
+                                                                    disabled: !sizes.includes(+size)
+                                                                })}>{size} см</li>)
                     }
 
                 </ul>
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} руб</div>
-                <Button className=" button--add" onClick={handleAddPizza} >
+                <Button className=" button--add" onClick={handleAddPizza}>
                     <svg
                         width="12"
                         height="12"
@@ -70,10 +79,11 @@ export const PizzaBlock =React.memo(({
                             fill="white"
                         />
                     </svg>
-                    <span >Добавить</span>
-                    {addedCount&& <i>{addedCount}</i>}
+                    <span>Добавить</span>
+                    {addedCount && <i>{addedCount}</i>}
                 </Button>
             </div>
         </div>
-    );})
+    );
+})
 

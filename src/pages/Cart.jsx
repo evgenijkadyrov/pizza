@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import CartItem from "./CartItem";
 import {useDispatch, useSelector} from "react-redux";
 import {addPizzaToCart, clearCart, decrementItem, deleteItem} from "../redux";
@@ -6,9 +6,9 @@ import {Link, useNavigate} from "react-router-dom";
 import {Button} from "../components";
 import {Modal} from "../components/Modal/Modal";
 
-export const Cart =React.memo(  () => {
-    const[modalActive,setModalActive]=useState(false)
-    const[activePaymentModal,setActivePaymentModal]=useState(false)
+export const Cart = React.memo(() => {
+    const [modalActive, setModalActive] = useState(false)
+    const [activePaymentModal, setActivePaymentModal] = useState(false)
 
     const {totalPrice, totalCount, items} = useSelector((state) => (state.cart))
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ export const Cart =React.memo(  () => {
 
     const commonArr = items.map(el => JSON.stringify(el))
     const uniqueElements = [...new Set(commonArr)];
-      const count = uniqueElements.map(element => [
+    const count = uniqueElements.map(element => [
         JSON.parse(element),
         commonArr.filter(el => el === element).length,
     ]);
@@ -24,26 +24,26 @@ export const Cart =React.memo(  () => {
     const handleActivateModal = () => {
         setModalActive(true)
     }
-const handleClearCart=()=>{
-    dispatch(clearCart())
-    setModalActive(false)
-    navigate('/')
-}
-const handleSDeactivateModal=()=>setModalActive(false)
+    const handleClearCart = () => {
+        dispatch(clearCart())
+        setModalActive(false)
+        navigate('/')
+    }
+    const handleSDeactivateModal = () => setModalActive(false)
 
-       const deleteItemFromCart =useCallback((id) => {
+    const deleteItemFromCart = useCallback((id) => {
         dispatch(deleteItem(id))
-    },[])
-    const decrementItemFromCart= useCallback((obj)=>{
+    }, [])
+    const decrementItemFromCart = useCallback((obj) => {
         dispatch(decrementItem(obj))
-    },[])
-    const incrementItemFromCart=useCallback((obj)=>{
+    }, [])
+    const incrementItemFromCart = useCallback((obj) => {
         dispatch(addPizzaToCart(obj))
-    },[])
-    const setHandlePayment=()=>{
+    }, [])
+    const setHandlePayment = () => {
         setActivePaymentModal(true)
     }
-    const handleDeactivatePaymentModal=()=>{
+    const handleDeactivatePaymentModal = () => {
         dispatch(clearCart())
         setActivePaymentModal(false)
         navigate('/')
@@ -88,7 +88,7 @@ const handleSDeactivateModal=()=>setModalActive(false)
                                   strokeLinejoin="round"/>
                         </svg>
 
-                        <span  >Очистить корзину</span>
+                        <span>Очистить корзину</span>
                     </div>
                 </div>
                 <div className="content__items">
@@ -100,7 +100,7 @@ const handleSDeactivateModal=()=>setModalActive(false)
                                          deleteItem={deleteItemFromCart}
                                          decrementItem={decrementItemFromCart}
                                          incrementItem={incrementItemFromCart}
-                        imageUrl={item[0].imageUrl}/>
+                                         imageUrl={item[0].imageUrl}/>
                     })}
 
                 </div>
@@ -126,18 +126,21 @@ const handleSDeactivateModal=()=>setModalActive(false)
                             <Modal active={activePaymentModal}>
                                 <h2 className={'modal_text'}>Thanks for your order. </h2>
                                 <p> Wait call from operator.</p>
-                                <Button className={'btn'} onClick={handleDeactivatePaymentModal}>Ok</Button>
+                                <Button className={'btn'}
+                                        onClick={handleDeactivatePaymentModal}>Ok</Button>
                             </Modal>
                             <span>Оплатить сейчас</span>
                         </Button>
                     </div>
                 </div>
             </div>
-            <Modal active={modalActive} >
+            <Modal active={modalActive}>
                 <div className={'modal_text'}>Do you really want to clear cart?</div>
                 <div className={'btn_wrapper'}>
-                    <Button className={'color btn'} onClick={handleClearCart}>Delete</Button>
-                    <Button className={'btn'} onClick={handleSDeactivateModal}>Cancel</Button></div>
+                    <Button className={'color btn'}
+                            onClick={handleClearCart}>Delete</Button>
+                    <Button className={'btn'}
+                            onClick={handleSDeactivateModal}>Cancel</Button></div>
 
             </Modal>
         </div>
